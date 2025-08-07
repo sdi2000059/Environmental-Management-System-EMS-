@@ -1,0 +1,26 @@
+<resources>
+    <string name="start_tracking_button_text">START TRACKING</string>
+    <string name="stop_tracking_button_text">STOP TRACKING</string>
+    <string name="manual_title_placeholder"> Send GPS Coordinates via files</string>
+    <string name="manual_gps_coordinates_button_text">Send Coordinates</string>
+    <string name="stop_sending_manual_gps_coordinates">STOP SENDING</string>
+    <string name="log_out_setting">Exit</string>
+    <string name="exit_app_dialog_title">Exit App</string>
+    <string name="ip_port_setting">IP/PORT</string>
+    <string name="create_new_sensor">Create New Sensor</string>
+    <string name="automatic_title_placeholder">Send GPS Coordinates via Sensor</string>
+    <string name="head_value">0</string>
+    <string name="location_permission_dialog_title">Location Permission\n</string>
+    <string name="gps_permission_message">Please give permission in order to use GPS Sensor</string>
+    <string name="dialog_positive_option">OK</string>
+    <string name="dialog_message">Are you sure you want to exit?</string>
+    <string name="dialog_negative_option">NO</string>
+    <string name="send_coordinates">Send Coordinates</string>
+    <string-array name="SensorsType">
+        <item name="sensor1">Gas Sensor</item>
+        <item name="sensor2">Smoke Sensor</item>
+        <item name="sensor3">Temp Sensor</item>
+        <item name="sensor4">UV Sensor</item>
+    </string-array>
+
+</resources>

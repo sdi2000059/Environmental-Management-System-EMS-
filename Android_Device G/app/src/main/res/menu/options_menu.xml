@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ip_and_port_option"
+        android:title="@string/ip_port_setting" />
+
+    <item
+        android:id="@+id/publish_time_option"
+        android:title="@string/data_publish_time_setting" />
+
+
+    <item
+        android:id="@+id/log_out_option"
+        android:title="@string/log_out_setting" />
+
+</menu>

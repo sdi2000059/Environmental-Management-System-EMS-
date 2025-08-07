@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/manual_title_placeholder"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Send coordinates via file"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioButtonPOS_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Position_1" />
+
+        <RadioButton
+            android:id="@+id/radioButtonPOS_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Position_2" />
+
+        <RadioButton
+            android:id="@+id/radioButtonPOS_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Position_3" />
+
+        <RadioButton
+            android:id="@+id/radioButtonPOS_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Position_4" />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/send_coordinates_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="START SENDING"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/stop_sending_coordinates_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:enabled="false"
+        android:text="STOP SENDING"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </Button>
+
+
+
+</LinearLayout>

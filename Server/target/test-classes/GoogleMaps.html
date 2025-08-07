@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sensor Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #map{
+        width: 100%;
+        height: 1000px;
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id = "map"></div>
+    #map{
+      width: 100%;
+      height: 100%;
+    }
+    <script>
+      alert('Hello');
+      let IoT1_lat = 37.97010767993493;
+      let IoT1_lng = 23.76852802123843;
+      let IoT2_lat = 37.97053057286704;
+      let IoT2_lng = 23.761790311995163;
+
+      const android = {
+        lat: 37.972289781319006,
+        lng: 23.76541665868979
+      };
+      const IoT1 = {
+        lat: IoT1_lat,
+        lng: IoT1_lng
+      };
+      const IoT2 = {
+        lat: IoT2_lat,
+        lng: IoT2_lng
+      };
+      const IoT = {
+          IoT1_area: {
+            position: IoT1,
+            center: IoT1,
+            Status: 1,
+            Danger: 1,
+          },
+          IoT2_area: {
+            position: IoT2,
+            center: IoT2,
+            Status: 0,
+            Danger: 1,
+          }
+        };
+      async function initMap(){
+      const { Map } = await google.maps.importLibrary("maps");
+      const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+      const map = new Map(document.getElementById("map"), {
+        center: android,
+        zoom: 16,
+        mapId: "c02f5ba5b7ae353",
+      });
+      const icon = {
+        url: 'danger_icon.png', // url
+        scaledSize: new google.maps.Size(50, 50), // scaled size
+      };
+      const android_marker = new google.maps.Marker({
+        map,
+        position: android,
+      });
+
+      if (IoT['IoT1_area'].Danger == 1 && IoT['IoT2_area'].Danger == 1){
+
+        for (const device in IoT) {
+          const IoT_marker = new google.maps.Marker({
+            map,
+            position: IoT[device].position,
+            icon: icon
+          });
+        }
+        if (IoT1_lat > IoT2_lat){
+          if(IoT1_lng> IoT2_lng){
+            const rectangle = new google.maps.Rectangle({
+              strokeColor: "#FF0000",
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: "#FF0000",
+              fillOpacity: 0.35,
+              map,
+              bounds: {
+                north: IoT1_lat,
+                south: IoT2_lat,
+                east: IoT1_lng,
+                west: IoT2_lng,
+              },
+           });
+          }
+          else{
+            const rectangle = new google.maps.Rectangle({
+              strokeColor: "#FF0000",
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: "#FF0000",
+              fillOpacity: 0.35,
+              map,
+              bounds: {
+                north: IoT1_lat,
+                south: IoT2_lat,
+                east: IoT2_lng,
+                west: IoT1_lng,
+              },
+           });
+          }
+        }
+        else{
+          if(IoT1_lng> IoT2_lng){
+            const rectangle = new google.maps.Rectangle({
+              strokeColor: "#FF0000",
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: "#FF0000",
+              fillOpacity: 0.35,
+              map,
+              bounds: {
+                north: IoT2_lat,
+                south: IoT1_lat,
+                east: IoT1_lng,
+                west: IoT2_lng,
+              },
+           });
+          }
+          else{
+            const rectangle = new google.maps.Rectangle({
+              strokeColor: "#FF0000",
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: "#FF0000",
+              fillOpacity: 0.35,
+              map,
+              bounds: {
+                north: IoT2_lat,
+                south: IoT1_lat,
+                east: IoT2_lng,
+                west: IoT1_lng,
+              },
+           });
+          }
+        }
+      }
+      else{
+        for (const device in IoT) {
+          if (IoT[device].Status == 1){
+            const cityCircle = new google.maps.Circle({
+              strokeColor: "#84B070",
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: "#84B070",
+              fillOpacity: 0.65,
+              map,
+              center: IoT[device].center,
+              radius: 100,
+            });
+          }
+          else{
+            const cityCircle = new google.maps.Circle({
+              strokeColor: "#FF0000",
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: "#FF0000",
+              fillOpacity: 0.35,
+              map,
+              center: IoT[device].center,
+              radius: 100,
+            });
+          }
+          const IoT_marker = new google.maps.Marker({
+            map,
+            position: IoT[device].position,
+          });
+        }
+      }
+    }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFxveWhV_2EGMOk77tn9ocHqh9nWJSICk&callback=initMap"></script>
+  </body>
+</html>
